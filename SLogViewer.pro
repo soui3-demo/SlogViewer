@@ -6,17 +6,13 @@ TARGET = SLogViewer
 CONFIG(x64){
 TARGET = $$TARGET"64"
 }
-DEPENDPATH += .
-INCLUDEPATH += . \
-			   ../../utilities/include \
-			   ../../soui/include \
-			   ../../components \
-			   ../../third-part/scintilla/include \
-			   ../../controls.extend \
-			   
-dir = ../..
-include($$dir/common.pri)
 
+include($$(SOUIPATH)/demo_com.pri)
+
+INCLUDEPATH += . \
+		$(SOUIPATH)/controls.extend \
+		$(SOUIPATH)/third-part/Scintilla/include \
+			   
 CONFIG(debug,debug|release){
 	LIBS += utilitiesd.lib souid.lib scintillad.lib imm32.lib
 }
