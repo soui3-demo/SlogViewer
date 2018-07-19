@@ -37,8 +37,8 @@ HEADERS += droptarget.h \
            whwindow.h \
            magnet/MagnetFrame.h \
            res/resource.h \
-           ../../controls.extend/SRealWndHandler_Scintilla.h \
-           ../../controls.extend/ScintillaWnd.h
+           SRealWndHandler_Scintilla.h \
+			ScintillaWnd.h
 
 SOURCES += FilterDlg.cpp \
            LogParser.cpp \
@@ -49,7 +49,7 @@ SOURCES += FilterDlg.cpp \
            SLogAdapter.cpp \
            SLogViewer.cpp \
            magnet/MagnetFrame.cpp \
-           ../../controls.extend/SRealWndHandler_Scintilla.cpp \
-           ../../controls.extend/ScintillaWnd.cpp
+           $(SOUIPATH)/controls.extend/SRealWndHandler_Scintilla.cpp \
+           $(SOUIPATH)/controls.extend/ScintillaWnd.cpp
 
 RC_FILE += SLogViewer.rc
