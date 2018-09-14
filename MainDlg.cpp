@@ -92,7 +92,9 @@ void CMainDlg::OnLanguage(const SStringT & strLang)
 		CAutoRefPtr<ITranslator> lang;
 		pTransMgr->CreateTranslator(&lang);
 		lang->Load(&xmlLang.child(L"language"), 1);//1=LD_XML
-		pTransMgr->SetLanguage(lang->name());
+		wchar_t szName[64];
+		lang->GetName(szName);
+		pTransMgr->SetLanguage(szName);
 		pTransMgr->InstallTranslator(lang);
 		SDispatchMessage(UM_SETLANGUAGE,0,0);
 		m_pFilterDlg->SDispatchMessage(UM_SETLANGUAGE,0,0);
@@ -438,9 +440,10 @@ void CMainDlg::OnMenu()
 	ITranslatorMgr *pTransMgr = SApplication::getSingletonPtr()->GetTranslator();
 	SASSERT(pTransMgr);
 
-	SStringW strLang = pTransMgr->GetLanguage();
+	wchar_t szLang[64];
+	pTransMgr->GetLanguage(szLang);
 	int langId = 0;
-	if(strLang== (L"chinese"))
+	if(wcscmp(szLang,L"chinese")==0)
 		langId=2020;
 	else
 		langId=2021;
