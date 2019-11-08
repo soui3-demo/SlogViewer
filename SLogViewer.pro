@@ -10,8 +10,8 @@ TARGET = $$TARGET"64"
 include($$(SOUI3PATH)/demo_com.pri)
 
 INCLUDEPATH += . \
-		$(SOUIPATH)/controls.extend \
-		$(SOUIPATH)/third-part/Scintilla/include \
+		$(SOUI3PATH)/controls.extend \
+		$(SOUI3PATH)/third-part/Scintilla/include \
 			   
 CONFIG(debug,debug|release){
 	LIBS += utilitiesd.lib soui3d.lib scintillad.lib imm32.lib
@@ -37,8 +37,8 @@ HEADERS += droptarget.h \
            whwindow.h \
            magnet/MagnetFrame.h \
            res/resource.h \
-           SRealWndHandler_Scintilla.h \
-			ScintillaWnd.h
+           $(SOUI3PATH)/controls.extend/SRealWndHandler_Scintilla.h \
+	   $(SOUI3PATH)/controls.extend/ScintillaWnd.h
 
 SOURCES += FilterDlg.cpp \
            LogParser.cpp \
@@ -49,7 +49,7 @@ SOURCES += FilterDlg.cpp \
            SLogAdapter.cpp \
            SLogViewer.cpp \
            magnet/MagnetFrame.cpp \
-           $(SOUIPATH)/controls.extend/SRealWndHandler_Scintilla.cpp \
-           $(SOUIPATH)/controls.extend/ScintillaWnd.cpp
+           $(SOUI3PATH)/controls.extend/SRealWndHandler_Scintilla.cpp \
+           $(SOUI3PATH)/controls.extend/ScintillaWnd.cpp
 
 RC_FILE += SLogViewer.rc
