@@ -7,7 +7,7 @@
 #include "FileHelper.h"
 #include "LogParser.h"
 #include <helper/SMenu.h>
-#include <helper/mybuffer.h>
+#include <helper/SAutoBuf.h>
 #include "EditConfigDlg.h"
 
 CMainDlg::CMainDlg() 
@@ -87,7 +87,7 @@ void CMainDlg::OnLanguage(const SStringT & strLang)
 	SASSERT(pTransMgr);
 
 	pugi::xml_document xmlLang;
-	if (SApplication::getSingletonPtr()->LoadXmlDocment(xmlLang, strLang,_T("languages")))
+	if (SApplication::getSingletonPtr()->LoadXmlDocment(xmlLang, SStringT().Format(_T("languages:%s"),strLang)))
 	{
 		CAutoRefPtr<ITranslator> lang;
 		pTransMgr->CreateTranslator(&lang);
@@ -104,7 +104,7 @@ void CMainDlg::OnLanguage(const SStringT & strLang)
 
 void CMainDlg::OnClose()
 {
-	CSimpleWnd::DestroyWindow();
+	SNativeWnd::DestroyWindow();
 }
 
 void CMainDlg::OnMaximize()
@@ -217,7 +217,7 @@ void CMainDlg::OpenFile(LPCTSTR pszFileName)
 	SStringT strFmt = GETSTRING(R.string.title);
 	SStringT strTitle = SStringT().Format(S_CW2T(strFmt),szName);
 	FindChildByID(R.id.txt_title)->SetWindowText(strTitle);
-	CSimpleWnd::SetWindowText(strTitle);
+	SNativeWnd::SetWindowText(strTitle);
 
 }
 
@@ -390,7 +390,7 @@ void CMainDlg::UpdateLogParser()
 		DWORD dwSize = SApplication::getSingleton().GetRawBufferSize(_T("xml"),_T("config"));
 		if(dwSize)
 		{
-			CMyBuffer<char> buf(dwSize);
+			SAutoBuf buf(dwSize);
 			SApplication::getSingleton().GetRawBuffer(_T("xml"),_T("config"),buf,dwSize);
 			FILE *f = _wfopen(strAppDir,L"w+b");
 			if(f)

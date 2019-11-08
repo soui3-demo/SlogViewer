@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "EditConfigDlg.h"
-#include <helper/mybuffer.h>
+#include <helper/SAutoBuf.h>
 
 CEditConfigDlg::CEditConfigDlg(void):SHostDialog(UIRES.LAYOUT.dlg_edit_config),m_pSciter(NULL)
 {

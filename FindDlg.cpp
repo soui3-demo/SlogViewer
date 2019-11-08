@@ -23,7 +23,7 @@ namespace SOUI
 
 	void CFindDlg::OnClose()
 	{
-		CSimpleWnd::ShowWindow(SW_HIDE);
+		SNativeWnd::ShowWindow(SW_HIDE);
 	}
 
 	void CFindDlg::OnFindNext()
