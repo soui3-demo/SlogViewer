@@ -549,7 +549,7 @@ namespace SOUI
 
 		for(int i=0;i<m_lstInclude.GetCount();i++)
 		{
-			SStringT key = m_lstInclude[i];
+			SStringW key = m_lstInclude[i];
 			if(-1 != strContent.Find(key)) return true;
 		}
 		return false;
