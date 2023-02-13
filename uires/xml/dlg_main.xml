@@ -37,7 +37,7 @@ trCtx="dlg_main"
           <edit size="150dp,-2" extend_right="5dp" cueText="@string/cue_input_filter" name="edit_filter" notifyChange="1"/>
         </window>
         <mclistview size="-2,0" extend_top="5dp" weight="1" name="lv_log" colorBkgnd="#cccccc" headerHeight="25dp">
-          <header align="center"  itemSwapEnable="1" fixWidth="0" font="underline:0,adding:-3" sortHeader="0" colorBkgnd="#ffffff" >
+          <headerStyle align="center"  itemSwapEnable="1" fixWidth="0" font="underline:0,adding:-3" sortHeader="0" colorBkgnd="#ffffff" >
             <items>
               <item width="50">@string/col_line</item>
               <item width="170">@string/col_time</item>
@@ -52,7 +52,7 @@ trCtx="dlg_main"
               <item width="500">@string/col_content</item>
               <item width="100">@string/col_package</item>
             </items>
-          </header>
+          </headerStyle>
           <template itemHeight="30dp" colorHover="#cccccc"  colorSelected="rgba(128,128,128,128)">
             <window name="col_line_index" clipClient="1" layout="hbox" gravity="center">
               <text name="txt_line" extend_left="5dp"/>
